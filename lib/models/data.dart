@@ -25,57 +25,35 @@ class AppColors {
   static final Color black = Color(0xFF04080F);
 }
 
-double randomRating() {
-  return Random().nextDouble() * 3 + 2;
-}
-
-int randomUserCount() {
-  return Random().nextInt(500);
+StudyPlace createRandomEntry(
+  String name,
+  bool isIndoors,
+  LocationType locationType,
+) {
+  final random = Random();
+  final count = random.nextInt(500);
+  final rating = ((random.nextInt(count ~/ 2)) + count ~/ 2) / count;
+  final date = DateTime(
+    2025,
+    random.nextInt(12),
+    random.nextInt(28),
+    random.nextInt(12) + 6,
+    random.nextInt(60),
+    random.nextInt(60),
+    random.nextInt(1000),
+  );
+  return StudyPlace(name, isIndoors, locationType, date, rating, count);
 }
 
 class SampleData {
   // random values only generate on startup
+
   static final List<StudyPlace> sampleStudyPlaces = [
-    StudyPlace(
-      "Thode Library",
-      true,
-      LocationType.library,
-      DateTime(2025, 1, 21, 14, 32),
-      randomRating(),
-      randomUserCount(),
-    ),
-    StudyPlace(
-      "Thode Library - Fireball Cafe",
-      true,
-      LocationType.cafe,
-      DateTime(2025, 1, 17, 19, 23),
-      randomRating(),
-      randomUserCount(),
-    ),
-    StudyPlace(
-      "JHE - 1st Floor",
-      true,
-      LocationType.hall,
-      DateTime(2025, 1, 13, 12, 19),
-      randomRating(),
-      randomUserCount(),
-    ),
-    StudyPlace(
-      "University Hall - Cafe",
-      true,
-      LocationType.cafe,
-      DateTime(2025, 1, 12, 11, 14),
-      randomRating(),
-      randomUserCount(),
-    ),
-    StudyPlace(
-      "Health Sciences Library",
-      true,
-      LocationType.library,
-      DateTime(2025, 9, 13, 7, 50),
-      randomRating(),
-      randomUserCount(),
-    ),
+    createRandomEntry("Thode Library", true, LocationType.library),
+    createRandomEntry("Thode Library - Fireball Cafe", true, LocationType.cafe),
+    createRandomEntry("JHE - 1st Floor", true, LocationType.hall),
+    createRandomEntry("University Hall - Cafe", true, LocationType.cafe),
+    createRandomEntry("Health Sciences Library", true, LocationType.library),
   ];
 
   static final UserInfo userInfo = UserInfo(
