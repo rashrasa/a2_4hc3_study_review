@@ -1,4 +1,4 @@
-import 'package:a2_4hc3_study_review/assets/constants.dart';
+import 'package:a2_4hc3_study_review/models/data.dart';
 import 'package:flutter/material.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -25,10 +25,7 @@ class _AppDrawerState extends State<AppDrawer> {
                     padding: EdgeInsetsGeometry.only(),
                     child: Text(
                       'Title',
-                      style: TextStyle(
-                        fontSize: 48,
-                        color: AppConstants.primaryColor,
-                      ),
+                      style: TextStyle(fontSize: 48, color: AppColors.primary),
                     ),
                   ),
                   Padding(
@@ -37,7 +34,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       'Subtitle',
                       style: TextStyle(
                         fontSize: 36,
-                        color: AppConstants.tertiaryColor,
+                        color: AppColors.secondary,
                       ),
                     ),
                   ),
