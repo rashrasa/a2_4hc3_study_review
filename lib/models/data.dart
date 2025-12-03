@@ -57,7 +57,7 @@ class SampleData {
   ];
 
   static final UserInfo userInfo = UserInfo(
-    "Bugs Bunny",
+    "Firstname Lastname",
     "Software Engineering",
     ["Health Sciences Library"],
     [
